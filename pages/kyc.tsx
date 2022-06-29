@@ -4,7 +4,6 @@ import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Uploader } from "uploader";
-import Dropzone from 'react-dropzone-uploader';
 import { UploadButton } from "react-uploader";
 import toast, { Toaster } from 'react-hot-toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
