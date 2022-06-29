@@ -18,6 +18,9 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
   const [wallet, setWallet] = useState([]);
   const [selectedWallet, setSelectedWallet] = useState<any>();
 
+  const onWalletChange = (e: any) => 
+  setSelectedWallet(e?.value);
+
   const showWallet = () => {
     const wallet:any = []
     if (user) {
@@ -97,7 +100,7 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
                     {/* <td> */}
                     <div className="col-xl-12">
                       <label className="form-label">Wallets Available</label>
-                          <Select name="coinType" options={wallet} onChange={(value) => setSelectedWallet(value?.value)} />
+                          <Select name="coinType" options={wallet} onChange={(value) => onWalletChange(value)} />
                         {/* <div className="col-12">
                           <div className="form-check form-check-inline">
                           </div>
