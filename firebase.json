@@ -4,6 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "site": "cryptoja-3450e",
     "public": "out",
     "ignore": [
       "firebase.json",
