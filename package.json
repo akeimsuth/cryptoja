@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
     "sass": "node-sass --watch public/scss/style.scss public/css/style.css --source-map public/css/style.css.map"
