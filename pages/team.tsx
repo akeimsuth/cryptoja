@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/dist/client/link";
 import LandingLayout from "../src/layouts/landing/LandingLayout";
 
@@ -31,7 +32,7 @@ const Team: NextPage = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="ceo-content">
-                <img
+                <Image
                   src="/images/testimonial/2.jpg"
                   alt=""
                   className="img-fluid rounded me-4"
@@ -72,19 +73,19 @@ const Team: NextPage = () => {
           </div>
           <div className="row pb-5">
             <div className="col-4">
-              <img
+              <Image
                 src="/images/team/1.jpg"
                 className="img-fluid rounded shadow-md"
                 alt="..."
               />
             </div>
             <div className="col-3">
-              <img
+              <Image
                 src="/images/team/2.jpg"
                 className="img-fluid rounded shadow-md mb-4"
                 alt="..."
               />
-              <img
+              <Image
                 src="/images/team/3.jpg"
                 className="img-fluid rounded shadow-md"
                 alt="..."
@@ -93,21 +94,21 @@ const Team: NextPage = () => {
             <div className="col-5">
               <div className="row mb-4">
                 <div className="col-5">
-                  <img
+                  <Image
                     src="/images/team/4.jpg"
                     className="img-fluid rounded shadow-md mb-4"
                     alt="..."
                   />
                 </div>
                 <div className="col-7">
-                  <img
+                  <Image
                     src="/images/team/5.jpg"
                     className="img-fluid rounded shadow-md mb-4"
                     alt="..."
                   />
                 </div>
                 <div className="col-12">
-                  <img
+                  <Image
                     src="/images/team/6.jpg"
                     className="img-fluid rounded shadow-md"
                     alt="..."
@@ -128,7 +129,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <img
+                      <Image
                         className="img-fluid"
                         src="/images/brand/1.webp"
                         alt=""
@@ -139,7 +140,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <img
+                      <Image
                         className="img-fluid"
                         src="/images/brand/2.webp"
                         alt=""
@@ -150,7 +151,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <img
+                      <Image
                         className="img-fluid"
                         src="/images/brand/3.webp"
                         alt=""
@@ -161,7 +162,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <img
+                      <Image
                         className="img-fluid"
                         src="/images/brand/4.webp"
                         alt=""
@@ -172,7 +173,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <img
+                      <Image
                         className="img-fluid"
                         src="/images/brand/5.webp"
                         alt=""
@@ -183,7 +184,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <img
+                      <Image
                         className="img-fluid"
                         src="/images/brand/5.webp"
                         alt=""

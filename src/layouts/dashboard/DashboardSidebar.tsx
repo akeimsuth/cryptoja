@@ -1,4 +1,5 @@
 import Link from "next/dist/client/link";
+import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import { auth, logout } from "../../../src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -26,7 +27,7 @@ const DashboardSidebar: FC = () => {
       <div className="brand-logo">
         <Link href="/dashboard">
           <a>
-            <img src="/images/logoi.png" alt="" width="30" />
+            <Image src="/images/logoi.png" alt="" width="30" />
           </a>
         </Link>
       </div>

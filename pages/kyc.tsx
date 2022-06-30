@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import styled from '@emotion/styled';
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
@@ -115,7 +116,7 @@ const KYC: NextPage = () => {
             <div className="mini-logo text-center my-4">
               <Link href="/">
                 <a>
-                  <img src="/images/logo.png" alt="" />
+                  <Image src="/images/logo.png" alt="" />
                 </a>
               </Link>
               <h4 className="card-title mt-5">Add KYC Documents</h4>
@@ -226,8 +227,8 @@ const KYC: NextPage = () => {
                         </UploadButton>
                         :
                         <UploadContainer>
-                        {selfie.map((doc: any) => {
-                            return <img style={{objectFit:'contain', width: '50%', height: '50%'}} src={doc}/>
+                        {selfie.map((doc: any, index: number) => {
+                            return <img key={`${new Date()} ${index}`} style={{objectFit:'contain', width: '50%', height: '50%'}} src={doc}/>
                         })}
            
                     </UploadContainer>
@@ -274,8 +275,8 @@ const KYC: NextPage = () => {
                         </UploadButton>
                         :
                         <UploadContainer>
-                        {selfie.map((doc: any) => {
-                            return <img style={{objectFit:'contain', width: '50%', height: '50%'}} src={doc}/>
+                        {selfie.map((doc: any, index: number) => {
+                            return <img key={`${new Date()} ${index}`} style={{objectFit:'contain', width: '50%', height: '50%'}} src={doc}/>
                         })}
            
                     </UploadContainer>

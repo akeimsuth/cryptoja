@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import { useState } from "react";
 import BlogRight from "../src/components/BlogRight";
 import LandingLayout from "../src/layouts/landing/LandingLayout";
@@ -40,7 +41,7 @@ const BlogDetails: NextPage = () => {
                 </ul>
                 <h3>Real Estate near ocean</h3>
                 <div className="blog-img">
-                  <img
+                  <Image
                     src="/images/blog/1.jpg"
                     alt="Image"
                     className="img-fluid"
@@ -87,7 +88,7 @@ const BlogDetails: NextPage = () => {
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="blg-sm">
-                        <img
+                        <Image
                           src="/images/blog/2.jpg"
                           alt="Image"
                           className="img-fluid"
@@ -187,7 +188,7 @@ const BlogDetails: NextPage = () => {
                 {/*post-share end*/}
                 <div className="cm-info-sec">
                   <div className="cm-img">
-                    <img src="/images/blog/cm-img.png" alt="Image" />
+                    <Image src="/images/blog/cm-img.png" alt="Image" />
                   </div>
                   {/*author-img end*/}
                   <div className="cm-info">
@@ -231,7 +232,7 @@ const BlogDetails: NextPage = () => {
                   <li>
                     <div className="cm-info-sec">
                       <div className="cm-img">
-                        <img src="/images/blog/cm-img.png" alt="Image" />
+                        <Image src="/images/blog/cm-img.png" alt="Image" />
                       </div>
                       {/*author-img end*/}
                       <div className="cm-info">
@@ -254,7 +255,7 @@ const BlogDetails: NextPage = () => {
                   <li>
                     <div className="cm-info-sec">
                       <div className="cm-img">
-                        <img src="/images/blog/cm-img.png" alt="Image" />
+                        <Image src="/images/blog/cm-img.png" alt="Image" />
                       </div>
                       {/*author-img end*/}
                       <div className="cm-info">
@@ -277,7 +278,7 @@ const BlogDetails: NextPage = () => {
                   <li>
                     <div className="cm-info-sec">
                       <div className="cm-img">
-                        <img src="/images/blog/cm-img.png" alt="Image" />
+                        <Image src="/images/blog/cm-img.png" alt="Image" />
                       </div>
                       {/*author-img end*/}
                       <div className="cm-info">

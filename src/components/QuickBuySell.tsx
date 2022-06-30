@@ -54,6 +54,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
       createTransaction(user?.uid, {
         "coinCurrency": "btc",
         "coinAmount": formData.btc,
+        "currency": currency,
         "amount": formData.usd,
         "type": name,
         "wallet": wallet,
@@ -110,7 +111,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
     if (formData.usd === "") {
       setFormData({ ...formData, btc: ""})
     }
-  }, [currency, formData.usd, btcAmount])
+  }, [currency, formData, btcAmount, coinAmount])
 
   const generateCoin = async() => {
     try {
@@ -169,7 +170,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   useEffect(() => {
     generateCoin();
     showTransactions();
-  },[user])
+  },[user, showTransactions])
 
   const val = {coinAmount: formData.btc, dollarAmount: formData.usd, type: title}
 

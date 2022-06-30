@@ -1,4 +1,5 @@
 import { FC, Fragment, useState } from "react";
+import Image from "next/image";
 import { Modal } from "react-bootstrap";
 import SuccessModal from "./SuccessModal";
 
@@ -70,7 +71,7 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
                   />
                 </div>
                 <div className="col-xl-12">
-                  <img src="/images/routing.png" alt="" className="img-fluid" />
+                  <Image src="/images/routing.png" alt="" className="img-fluid" />
                 </div>
               </div>
             </form>
@@ -84,15 +85,15 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
             <div className="row g-3">
               <div className="col-xl-12">
                 <label className="form-label">{`${values?.idType} front image`} </label>
-                <img src={values?.idFront} alt="" className="img-fluid" />
+                <Image src={values?.idFront} alt="" className="img-fluid" />
               </div>
               <div className="col-xl-12">
               <label className="form-label">{`${values?.idType} back image`} </label>
-                <img src={values?.idBack} alt="" className="img-fluid" />
+                <Image src={values?.idBack} alt="" className="img-fluid" />
               </div>
               <div className="col-xl-12">
               <label className="form-label">{`${values?.idType} selfie`} </label>
-                <img src={values?.selfie} alt="" className="img-fluid" />
+                <Image src={values?.selfie} alt="" className="img-fluid" />
               </div>
             </div>
           </form>

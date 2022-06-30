@@ -15,6 +15,10 @@ const SellForm: FC<{ name?: string; color?: string; title?: string }> = ({
   const [transactions, setTransactions] = useState([]);
   const [coin, setCoin] = useState<any>();
   const [btcAmount, setBtcAmount] = useState<any>(1);
+  const [coinAmount, setCoinAmount] = useState<any>();
+  const [altCoins, setAltCoins] = useState<any>();
+  const [usBtcAmount, setUsBtcAmount] = useState<any>();
+  const [currency, setCurrency] = useState<any>("jmd");
   const [user, loading] = useAuthState(auth);
   const [formData, setFormData] = useState({
     usd: "",
@@ -23,11 +27,15 @@ const SellForm: FC<{ name?: string; color?: string; title?: string }> = ({
   const { usd, btc } = formData;
 
   useEffect(() => {
-    setFormData({ ...formData, btc: (parseFloat(formData.usd) / btcAmount).toString() });
-    if (formData.usd === "") {
-      setFormData({ ...formData, btc: ""})
+    if (currency === "jmd") {
+      setFormData({ ...formData, usd: ((parseFloat(formData.btc) * 148 * btcAmount) - ((parseFloat(formData.btc) * 148 * btcAmount) * 0.15)).toString() });
+    } else {
+      setFormData({ ...formData, usd: ((parseFloat(formData.btc) * btcAmount) - ((parseFloat(formData.btc) * btcAmount) * 0.15)).toString() });
     }
-  }, [formData.usd])
+    if (formData.btc === "") {
+      setFormData({ ...formData, usd: ""})
+    }
+  }, [currency, formData, btcAmount])
 
   const onChange = (e: any) =>
   setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,6 +45,7 @@ const SellForm: FC<{ name?: string; color?: string; title?: string }> = ({
       createTransaction(user?.uid, {
         "coinCurrency": "btc",
         "coinAmount": formData.btc,
+        "currency": currency,
         "amount": formData.usd,
         "type": name,
         "wallet": wallet,
@@ -74,15 +83,53 @@ const SellForm: FC<{ name?: string; color?: string; title?: string }> = ({
       const res = parseFloat(results.bitcoin.usd).toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
       setCoin(res)
       setBtcAmount(results.bitcoin.usd);
+      setAltCoins({
+        bitcoin: results.bitcoin.usd,
+        ethereum: results.ethereum.usd,
+        litecoin: results.litecoin.usd,
+        // xrp: results.xrp.usd
+      })
     } catch (err) {
       // do something with the error
+    }
+  }
+
+  const changeCoins = (e: any) => {
+    switch (e.target.value) {
+      case "bitcoin":
+        setCoinAmount(altCoins?.bitcoin * 148)
+        setBtcAmount(altCoins?.bitcoin);
+        break;
+        case "ethereum":
+          setCoinAmount(altCoins?.ethereum * 148)
+          setBtcAmount(altCoins?.ethereum);
+          break;
+        case "litecoin":
+        setCoinAmount(altCoins?.litecoin * 148)
+        setBtcAmount(altCoins?.litecoin);
+        break;
+      default:
+        break;
+    }
+  }
+
+  const changeCurrency = (e: any) => {
+    switch (e.target.value) {
+      case "jmd":
+        setCurrency("jmd");
+        break;
+        case "usd":
+          setCurrency("usd");
+          break;
+      default:
+        break;
     }
   }
 
   useEffect(() => {
     generateCoin();
     showTransactions();
-  },[user])
+  },[user, showTransactions])
 
   const val = {coinAmount: formData.btc, dollarAmount: formData.usd, type: name}
 
@@ -109,9 +156,10 @@ const SellForm: FC<{ name?: string; color?: string; title?: string }> = ({
         <div className="col-12">
             <label className="form-label">Send</label>
             <div className="input-group">
-              <select className="form-control" name="method">
-                <option value="bank">BTC</option>
-                <option value="master">ETH</option>
+              <select className="form-control" name="method" onChange={(e) => changeCoins(e)}>
+                <option value="bitcoin">BTC</option>
+                <option value="ethereum">ETH</option>
+                <option value="litecoin">LTC</option>
               </select>
               <input
                 type="text"
@@ -126,9 +174,9 @@ const SellForm: FC<{ name?: string; color?: string; title?: string }> = ({
           <div className="col-12">
             <label className="form-label">Receive</label>
             <div className="input-group">
-              <select className="form-control" name="method">
-                <option value="bank">USD</option>
-                <option value="master">JMD</option>
+              <select className="form-control" name="method" onChange={(e) => changeCurrency(e)}>
+                <option value="jmd">JMD</option>
+                <option value="usd">USD</option>
               </select>
               <input
                 disabled

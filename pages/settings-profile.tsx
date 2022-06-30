@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { auth } from "../src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -60,7 +61,7 @@ const ProfileSetting: NextPage = () => {
                     </div>
                     <div className="col-xxl-12">
                       <div className="d-flex align-items-center">
-                        <img
+                        <Image
                           className="me-3 rounded-circle me-0 me-sm-3"
                           src="images/profile/2.png"
                           width="55"

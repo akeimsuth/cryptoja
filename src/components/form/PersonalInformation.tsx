@@ -40,7 +40,7 @@ const PersonalInformation: FC = () => {
 
   useEffect(() => {
     showUserDetails();
-  },[user])
+  },[user, showUserDetails])
 
   const [formData, setFormData] = useState({
     name: userDetails?.name,

@@ -33,8 +33,8 @@ const Trade: NextPage = () => {
     {
       name: 'Type',
       selector: row => <>
-      <span className={row?.type === "sell" ? "danger-arrow" : "success-arrow"}>
-        <i className={row?.type === "sell" ? "icofont-arrow-down" : "icofont-arrow-up"}></i> {row.type}
+      <span className={row?.type === "Sell" ? "danger-arrow" : "success-arrow"}>
+        <i className={row?.type === "Sell" ? "icofont-arrow-down" : "icofont-arrow-up"}></i> {row.type}
       </span>
       </>,
     },
@@ -52,7 +52,7 @@ const Trade: NextPage = () => {
     },
     {
       name: 'Dollar Amount',
-      selector: row => `$${convertMoney(row?.amount)}`,
+      selector: row => `$${convertMoney(row?.amount)} ${(row?.currency)?.toUpperCase()}`,
     },
 ];
 

@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/dist/client/link";
 import CoinGeckoApi from '@crypto-coffee/coingecko-api';
 import { useRouter } from "next/router";
@@ -173,6 +174,7 @@ const Index: NextPage = () => {
             <div className="col-xl-4 col-lg-6 col-12">
               <div className="intro-form-exchange">
                 <form
+                  key={`${new Date()}form`}
                   name="myform"
                   className="currency_validate trade-form row g-3"
                   onSubmit={(e) => {
@@ -545,7 +547,7 @@ const Index: NextPage = () => {
                     <div className="row align-items-center">
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-img">
-                          <img
+                          <Image
                             className="img-fluid"
                             src="/images/testimonial/1.jpg"
                             alt="Image"
@@ -554,7 +556,7 @@ const Index: NextPage = () => {
                       </div>
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-review">
-                          <img
+                          <Image
                             className="img-fluid"
                             src="/images/brand/2.webp"
                             alt="Image"
@@ -577,7 +579,7 @@ const Index: NextPage = () => {
                     <div className="row align-items-center">
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-img">
-                          <img
+                          <Image
                             className="img-fluid"
                             src="/images/testimonial/2.jpg"
                             alt="Image"
@@ -586,7 +588,7 @@ const Index: NextPage = () => {
                       </div>
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-review">
-                          <img
+                          <Image
                             className="img-fluid"
                             src="/images/brand/3.webp"
                             alt="Image"

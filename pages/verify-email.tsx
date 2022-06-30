@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/dist/client/link";
 const VerifyEmail: NextPage = () => {
   return (
@@ -9,7 +10,7 @@ const VerifyEmail: NextPage = () => {
             <div className="mini-logo text-center my-4">
               <Link href="/">
                 <a>
-                  <img src="/images/logo.png" alt="" />
+                  <Image src="/images/logo.png" alt="" />
                 </a>
               </Link>
               <h4 className="card-title mt-5">Verify your Email</h4>

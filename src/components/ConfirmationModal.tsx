@@ -18,6 +18,17 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
   const [wallet, setWallet] = useState([]);
   const [selectedWallet, setSelectedWallet] = useState<any>();
 
+  const [formData, setFormData] = useState({
+    bank_name: "",
+    branch_name: "",
+    account_type: "",
+    account_number: ""
+  });
+  const { bank_name, branch_name, account_type, account_number } = formData;
+
+  const onChange = (e: any) =>
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+
   const onWalletChange = (e: any) => 
   setSelectedWallet(e?.value);
 
@@ -40,7 +51,7 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
 
   useEffect(() => {
     showWallet();
-  }, [user])
+  }, [user, showWallet])
 
   return (
     <Fragment>
@@ -119,32 +130,41 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
                   <input
                     type="text"
                     className="form-control"
-                    name="address"
+                    name="bank_name"
                     placeholder="Bank Name"
+                    value={bank_name}
+                    onChange={(e) => onChange(e)}
                   />
                 </div>
                 <div className="col-xl-12">
                   <input
                     type="text"
                     className="form-control"
-                    name="address"
+                    name="branch_name"
                     placeholder="Branch Name"
+                    value={branch_name}
+                    onChange={(e) => onChange(e)}
                   />
                 </div>
                 <div className="col-xl-12">
                   <input
                     type="text"
                     className="form-control"
-                    name="address"
+                    name="account_type"
                     placeholder="Account Type"
+                    value={account_type}
+                    onChange={(e) => onChange(e)}
                   />
                 </div>
                 <div className="col-xl-12">
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
-                    name="address"
+                    name="account_number"
                     placeholder="Account Number"
+                    value={account_number}
+                    minLength={9}
+                    onChange={(e) => onChange(e)}
                   />
                 </div>
                 </div>
@@ -204,7 +224,11 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
                 onClick={() => {
                   setSuccessModal(true);
                   close(false);
-                  purchase(selectedWallet);
+                  if (values?.type === "Buy") {
+                    purchase(selectedWallet);
+                  } else {
+                    purchase(formData)
+                  }
                 }}
               >
                 Confirm

@@ -1,4 +1,5 @@
 import { FC, Fragment, useState } from "react";
+import Image from "next/image";
 import { Modal } from "react-bootstrap";
 import SuccessModal from "./SuccessModal";
 
@@ -63,7 +64,7 @@ const AddBankAccountModal: FC<{ show?: boolean; close?: any }> = ({
                   />
                 </div>
                 <div className="col-xl-12">
-                  <img src="/images/routing.png" alt="" className="img-fluid" />
+                  <Image src="/images/routing.png" alt="" className="img-fluid" />
                 </div>
               </div>
             </form>

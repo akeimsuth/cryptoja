@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/dist/client/link";
 import LandingLayout from "../src/layouts/landing/LandingLayout";
 
@@ -27,7 +28,7 @@ const About: NextPage = () => {
             </div>
             <div className="col-lg-6">
               <div className="service-img">
-                <img src="images/about/1.jpeg" alt="" className="img-fluid" />
+                <Image src="images/about/1.jpeg" alt="" className="img-fluid" />
               </div>
             </div>
           </div>
@@ -94,7 +95,7 @@ const About: NextPage = () => {
             </div>
             <div className="col-lg-6">
               <div className="service-img">
-                <img src="images/about/1.jpg" alt="" className="img-fluid" />
+                <Image src="images/about/1.jpg" alt="" className="img-fluid" />
               </div>
             </div>
           </div>

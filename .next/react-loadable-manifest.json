@@ -1,1 +1,14 @@
-{}
+{
+  "dashboard.tsx -> ../src/components/AnalyticsChart": {
+    "id": "./src/components/AnalyticsChart.tsx",
+    "files": [
+      "static/chunks/src_components_AnalyticsChart_tsx.js"
+    ]
+  },
+  "dashboard.tsx -> ../src/components/PriceChart": {
+    "id": "./src/components/PriceChart.tsx",
+    "files": [
+      "static/chunks/src_components_PriceChart_tsx.js"
+    ]
+  }
+}

@@ -1,4 +1,5 @@
 import Link from "next/dist/client/link";
+import Image from "next/image";
 import { FC } from "react";
 
 const BlogRight: FC = () => {
@@ -21,7 +22,7 @@ const BlogRight: FC = () => {
           <h3 className="post-title">Recent Post</h3>
           <ul className="list-unstyled">
             <li className="media d-flex">
-              <img src="/images/blog/post_1.jpg" className="me-3" alt="..." />
+              <Image src="/images/blog/post_1.jpg" className="me-3" alt="..." />
               <div className="media-body ms-1">
                 <h5 className="mt-0 mb-1">List-based media object</h5>
                 <div className="meta-info">
@@ -40,7 +41,7 @@ const BlogRight: FC = () => {
               </div>
             </li>
             <li className="media d-flex my-4">
-              <img src="/images/blog/post_2.jpg" className="me-3" alt="..." />
+              <Image src="/images/blog/post_2.jpg" className="me-3" alt="..." />
               <div className="media-body ms-1">
                 <h5 className="mt-0 mb-1">List-based media object</h5>
                 <div className="meta-info">
@@ -59,7 +60,7 @@ const BlogRight: FC = () => {
               </div>
             </li>
             <li className="media d-flex">
-              <img src="/images/blog/post_3.jpg" className="me-3" alt="..." />
+              <Image src="/images/blog/post_3.jpg" className="me-3" alt="..." />
               <div className="media-body ms-1">
                 <h5 className="mt-0 mb-1">List-based media object</h5>
                 <div className="meta-info">

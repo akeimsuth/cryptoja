@@ -35,7 +35,7 @@ const BuySellForm: FC<{ name?: string; color?: string; title?: string }> = ({
     if (formData.usd === "") {
       setFormData({ ...formData, btc: ""})
     }
-  }, [currency, formData.usd, btcAmount])
+  }, [currency, formData, btcAmount, coinAmount])
 
   const onChange = (e: any) =>
   setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -45,6 +45,7 @@ const BuySellForm: FC<{ name?: string; color?: string; title?: string }> = ({
       createTransaction(user?.uid, {
         "coinCurrency": "btc",
         "coinAmount": formData.btc,
+        "currency": currency,
         "amount": formData.usd,
         "type": name,
         "wallet": wallet,
@@ -128,7 +129,7 @@ const BuySellForm: FC<{ name?: string; color?: string; title?: string }> = ({
   useEffect(() => {
     generateCoin();
     showTransactions();
-  },[user])
+  },[user, showTransactions])
 
   const val = {coinAmount: formData.btc, dollarAmount: formData.usd, type: name}
 

@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/dist/client/link";
 import DashboardLayout from "../src/layouts/dashboard/DashboardLayout";
 const Profile: NextPage = () => {
@@ -10,7 +11,7 @@ const Profile: NextPage = () => {
             <div className="col-xxl-6 col-xl-6 col-lg-6">
               <div className="card welcome-profile">
                 <div className="card-body">
-                  <img src="/images/profile/2.png" alt="" />
+                  <Image src="/images/profile/2.png" alt="" />
                   <h4>Welcome, Jannatul Maowa!</h4>
                   <p>
                     Looks like you are not verified yet. Verify yourself to use
@@ -53,14 +54,14 @@ const Profile: NextPage = () => {
 
                     <Link href="/app">
                       <a className="btn btn-primary">
-                        <img src="/images/android.svg" alt="Image" />
+                        <Image src="/images/android.svg" alt="Image" />
                       </a>
                     </Link>
                     <br />
                     <div className="mt-3"></div>
                     <Link href="/app">
                       <a className="btn btn-primary">
-                        <img src="/images/apple.svg" alt="Image" />
+                        <Image src="/images/apple.svg" alt="Image" />
                       </a>
                     </Link>
                   </div>

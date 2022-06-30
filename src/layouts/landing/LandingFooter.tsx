@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/dist/client/link";
 import { Fragment } from "react";
 const LandingFooter: NextPage = () => {
@@ -9,7 +10,7 @@ const LandingFooter: NextPage = () => {
           <div className="row">
             <div className="col-xl-4">
               <div className="bottom-logo">
-                <img className="pb-3" src="/images/logow.png" alt="" />
+                <Image className="pb-3" src="/images/logow.png" alt="" />
 
                 <p>
                   Cryptoja is a platform to allow users to buy and sell crypto coins locally

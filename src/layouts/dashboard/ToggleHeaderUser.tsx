@@ -1,4 +1,5 @@
 import Link from "next/dist/client/link";
+import Image from "next/image";
 import { FC, useState, useEffect } from "react";
 import { auth, logout } from "../../../src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -27,7 +28,7 @@ const ToggleHeaderUser: FC = () => {
     <div className="profile_log dropdown" ref={domNode}>
       <div className="user" onClick={() => setToggleuser(!toggleuser)}>
         <span className="thumb">
-          <img src="/images/profile/2.png" alt="" />
+          <Image src="/images/profile/2.png" alt="" />
         </span>
         <span className="arrow">
           <i className="icofont-angle-down"></i>
@@ -41,7 +42,7 @@ const ToggleHeaderUser: FC = () => {
         <div className="user-email">
           <div className="user">
             <span className="thumb">
-              <img src="/images/profile/2.png" alt="" />
+              <Image src="/images/profile/2.png" alt="" />
             </span>
             <div className="user-info">
               <h5>{userDetails?.name}</h5>

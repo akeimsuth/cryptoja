@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { auth, logout } from "../../../src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -39,12 +40,12 @@ const LandingHeader: NextPage = () => {
                 <div className="brand-logo">
                   <Link href="/">
                     <a>
-                      <img
+                      <Image
                         src="/images/logo.png"
                         alt="Logo"
                         className="logo-primary"
                       />
-                      <img
+                      <Image
                         src="/images/logow.png"
                         alt="Logo"
                         className="logo-white"

@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -47,7 +48,7 @@ const Signup: NextPage = () => {
             <div className="mini-logo text-center my-4">
               <Link href="/">
                 <a>
-                  <img src="/images/logo.png" alt="" />
+                  <Image src="/images/logo.png" alt="" />
                 </a>
               </Link>
               <h4 className="card-title mt-5">Create your account</h4>
