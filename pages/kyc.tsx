@@ -105,7 +105,7 @@ const KYC: NextPage = () => {
 
   const uploader = new Uploader({
     // Get production API keys from Upload.io
-    apiKey: "free"
+    apiKey: "public_kW15asXEPzdw8MmQUwtuPugqv4Gw"
   });
   return (
     <div className="authincation section-padding">
