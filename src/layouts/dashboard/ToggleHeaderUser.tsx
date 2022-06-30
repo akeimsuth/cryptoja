@@ -28,7 +28,7 @@ const ToggleHeaderUser: FC = () => {
     <div className="profile_log dropdown" ref={domNode}>
       <div className="user" onClick={() => setToggleuser(!toggleuser)}>
         <span className="thumb">
-          <Image src="/images/profile/2.png" alt="" />
+          <img src="/images/profile/2.png" alt="" />
         </span>
         <span className="arrow">
           <i className="icofont-angle-down"></i>
@@ -42,7 +42,7 @@ const ToggleHeaderUser: FC = () => {
         <div className="user-email">
           <div className="user">
             <span className="thumb">
-              <Image src="/images/profile/2.png" alt="" />
+              <img src="/images/profile/2.png" alt="" />
             </span>
             <div className="user-info">
               <h5>{userDetails?.name}</h5>

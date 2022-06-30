@@ -40,12 +40,12 @@ const LandingHeader: NextPage = () => {
                 <div className="brand-logo">
                   <Link href="/">
                     <a>
-                      <Image
+                      <img
                         src="/images/logo.png"
                         alt="Logo"
                         className="logo-primary"
                       />
-                      <Image
+                      <img
                         src="/images/logow.png"
                         alt="Logo"
                         className="logo-white"

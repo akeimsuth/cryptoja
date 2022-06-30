@@ -32,7 +32,7 @@ const Team: NextPage = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="ceo-content">
-                <Image
+                <img
                   src="/images/testimonial/2.jpg"
                   alt=""
                   className="img-fluid rounded me-4"
@@ -73,19 +73,19 @@ const Team: NextPage = () => {
           </div>
           <div className="row pb-5">
             <div className="col-4">
-              <Image
+              <img
                 src="/images/team/1.jpg"
                 className="img-fluid rounded shadow-md"
                 alt="..."
               />
             </div>
             <div className="col-3">
-              <Image
+              <img
                 src="/images/team/2.jpg"
                 className="img-fluid rounded shadow-md mb-4"
                 alt="..."
               />
-              <Image
+              <img
                 src="/images/team/3.jpg"
                 className="img-fluid rounded shadow-md"
                 alt="..."
@@ -94,21 +94,21 @@ const Team: NextPage = () => {
             <div className="col-5">
               <div className="row mb-4">
                 <div className="col-5">
-                  <Image
+                  <img
                     src="/images/team/4.jpg"
                     className="img-fluid rounded shadow-md mb-4"
                     alt="..."
                   />
                 </div>
                 <div className="col-7">
-                  <Image
+                  <img
                     src="/images/team/5.jpg"
                     className="img-fluid rounded shadow-md mb-4"
                     alt="..."
                   />
                 </div>
                 <div className="col-12">
-                  <Image
+                  <img
                     src="/images/team/6.jpg"
                     className="img-fluid rounded shadow-md"
                     alt="..."
@@ -129,7 +129,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <Image
+                      <img
                         className="img-fluid"
                         src="/images/brand/1.webp"
                         alt=""
@@ -140,7 +140,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <Image
+                      <img
                         className="img-fluid"
                         src="/images/brand/2.webp"
                         alt=""
@@ -151,7 +151,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <Image
+                      <img
                         className="img-fluid"
                         src="/images/brand/3.webp"
                         alt=""
@@ -162,7 +162,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <Image
+                      <img
                         className="img-fluid"
                         src="/images/brand/4.webp"
                         alt=""
@@ -173,7 +173,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <Image
+                      <img
                         className="img-fluid"
                         src="/images/brand/5.webp"
                         alt=""
@@ -184,7 +184,7 @@ const Team: NextPage = () => {
                 <div className="col-auto">
                   <div className="trusted-logo">
                     <a href="#">
-                      <Image
+                      <img
                         className="img-fluid"
                         src="/images/brand/5.webp"
                         alt=""

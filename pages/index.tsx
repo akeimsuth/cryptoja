@@ -547,7 +547,7 @@ const Index: NextPage = () => {
                     <div className="row align-items-center">
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-img">
-                          <Image
+                          <img
                             className="img-fluid"
                             src="/images/testimonial/1.jpg"
                             alt="Image"
@@ -556,7 +556,7 @@ const Index: NextPage = () => {
                       </div>
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-review">
-                          <Image
+                          <img
                             className="img-fluid"
                             src="/images/brand/2.webp"
                             alt="Image"
@@ -579,7 +579,7 @@ const Index: NextPage = () => {
                     <div className="row align-items-center">
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-img">
-                          <Image
+                          <img
                             className="img-fluid"
                             src="/images/testimonial/2.jpg"
                             alt="Image"
@@ -588,7 +588,7 @@ const Index: NextPage = () => {
                       </div>
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-review">
-                          <Image
+                          <img
                             className="img-fluid"
                             src="/images/brand/3.webp"
                             alt="Image"

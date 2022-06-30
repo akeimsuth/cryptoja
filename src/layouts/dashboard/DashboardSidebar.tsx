@@ -27,7 +27,7 @@ const DashboardSidebar: FC = () => {
       <div className="brand-logo">
         <Link href="/dashboard">
           <a>
-            <Image src="/images/logoi.png" alt="" width="30" />
+            <img src="/images/logoi.png" alt="" width="30" />
           </a>
         </Link>
       </div>

@@ -27,7 +27,7 @@ const Reset: NextPage = () => {
             <div className="mini-logo text-center my-3">
               <Link href="/">
                 <a>
-                  <Image src="/images/logo.png" alt="" />
+                  <img src="/images/logo.png" alt="" />
                 </a>
               </Link>
               <h4 className="card-title mt-5">Reset Password</h4>

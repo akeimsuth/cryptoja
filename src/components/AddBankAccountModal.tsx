@@ -64,7 +64,7 @@ const AddBankAccountModal: FC<{ show?: boolean; close?: any }> = ({
                   />
                 </div>
                 <div className="col-xl-12">
-                  <Image src="/images/routing.png" alt="" className="img-fluid" />
+                  <img src="/images/routing.png" alt="" className="img-fluid" />
                 </div>
               </div>
             </form>

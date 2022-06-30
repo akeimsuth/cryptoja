@@ -48,7 +48,7 @@ const Index3: NextPage = () => {
             <div className="col-xl-4 col-lg-6 col-12">
               <div className="intro-app-img">
                 {/* <img src="/images/landing/banner-image-left.png" class="img-fluid" alt=""> */}
-                <Image
+                <img
                   src="/images/landing/banner-image-right.png"
                   className="img-fluid"
                   alt="Image"
@@ -115,7 +115,7 @@ const Index3: NextPage = () => {
             </div>
             <div className="col-xl-6">
               <div className="swap-crypto-img">
-                <Image
+                <img
                   src="/images/landing/qex.png"
                   alt="IMage"
                   className="img-fluid"
@@ -141,7 +141,7 @@ const Index3: NextPage = () => {
           <div className="row justify-content-between align-items-center">
             <div className="col-xl-8">
               <div className="advance-trading-img">
-                <Image
+                <img
                   src="/images/portfolio.jpg"
                   alt="Imaeg"
                   className="img-fluid"

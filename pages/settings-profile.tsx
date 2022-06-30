@@ -61,7 +61,7 @@ const ProfileSetting: NextPage = () => {
                     </div>
                     <div className="col-xxl-12">
                       <div className="d-flex align-items-center">
-                        <Image
+                        <img
                           className="me-3 rounded-circle me-0 me-sm-3"
                           src="images/profile/2.png"
                           width="55"

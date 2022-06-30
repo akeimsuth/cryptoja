@@ -71,7 +71,7 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
                   />
                 </div>
                 <div className="col-xl-12">
-                  <Image src="/images/routing.png" alt="" className="img-fluid" />
+                  <img src="/images/routing.png" alt="" className="img-fluid" />
                 </div>
               </div>
             </form>
@@ -85,15 +85,15 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
             <div className="row g-3">
               <div className="col-xl-12">
                 <label className="form-label">{`${values?.idType} front image`} </label>
-                <Image src={values?.idFront} alt="" className="img-fluid" />
+                <img src={values?.idFront} alt="" className="img-fluid" />
               </div>
               <div className="col-xl-12">
               <label className="form-label">{`${values?.idType} back image`} </label>
-                <Image src={values?.idBack} alt="" className="img-fluid" />
+                <img src={values?.idBack} alt="" className="img-fluid" />
               </div>
               <div className="col-xl-12">
               <label className="form-label">{`${values?.idType} selfie`} </label>
-                <Image src={values?.selfie} alt="" className="img-fluid" />
+                <img src={values?.selfie} alt="" className="img-fluid" />
               </div>
             </div>
           </form>

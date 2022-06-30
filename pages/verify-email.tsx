@@ -10,7 +10,7 @@ const VerifyEmail: NextPage = () => {
             <div className="mini-logo text-center my-4">
               <Link href="/">
                 <a>
-                  <Image src="/images/logo.png" alt="" />
+                  <img src="/images/logo.png" alt="" />
                 </a>
               </Link>
               <h4 className="card-title mt-5">Verify your Email</h4>

@@ -15,7 +15,7 @@ const Blog: NextPage = () => {
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className="blog-grid">
                     <div className="card">
-                      <Image
+                      <img
                         className="img-fluid card-img-top"
                         src="/images/blog/1.jpg"
                         alt=""
@@ -36,7 +36,7 @@ const Blog: NextPage = () => {
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className="blog-grid">
                     <div className="card">
-                      <Image
+                      <img
                         className="img-fluid card-img-top"
                         src="/images/blog/2.jpg"
                         alt=""
@@ -57,7 +57,7 @@ const Blog: NextPage = () => {
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className="blog-grid">
                     <div className="card">
-                      <Image
+                      <img
                         className="img-fluid card-img-top"
                         src="/images/blog/3.jpg"
                         alt=""
@@ -78,7 +78,7 @@ const Blog: NextPage = () => {
                 <div className="col-xl-6 col-lg-6 col-md-6">
                   <div className="blog-grid">
                     <div className="card">
-                      <Image
+                      <img
                         className="img-fluid card-img-top"
                         src="/images/blog/4.jpg"
                         alt=""

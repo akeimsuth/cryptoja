@@ -474,7 +474,7 @@ const Index2: NextPage = () => {
           <div className="row align-items-center justify-content-between">
             <div className="col-xl-5 col-lg-5 col-md-12">
               <div className="appss-img">
-                <Image className="img-fluid" src="/images/app2.png" alt="Image" />
+                <img className="img-fluid" src="/images/app2.png" alt="Image" />
               </div>
             </div>
             <div className="col-xl-6 col-lg-6 col-md-12">
@@ -505,12 +505,12 @@ const Index2: NextPage = () => {
                 <div className="mt-4">
                   <Link href="/app">
                     <a className="btn btn-success my-1 waves-effect">
-                      <Image src="/images/android.svg" alt="Image" />
+                      <img src="/images/android.svg" alt="Image" />
                     </a>
                   </Link>
                   <Link href="/app">
                     <a className="btn btn-success my-1 waves-effect">
-                      <Image src="/images/apple.svg" alt="Image" />
+                      <img src="/images/apple.svg" alt="Image" />
                     </a>
                   </Link>
                 </div>

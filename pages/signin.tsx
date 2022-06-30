@@ -57,7 +57,7 @@ const Signin: NextPage = () => {
             <div className="mini-logo text-center my-4">
               <Link href="/">
                 <a>
-                  <Image src="/images/logo.png" alt="" />
+                  <img src="/images/logo.png" alt="" />
                 </a>
               </Link>
               <h4 className="card-title mt-5">Sign in to Tendex</h4>
