@@ -35,9 +35,9 @@ const Signup: NextPage = () => {
       // maybe trigger a loading screen
       return;
     }
-    if (user) {
-      router.push("/verify-email");
-    }
+    // if (user) {
+    //   router.push("/verify-email");
+    // }
   }, [user, loading]);
 
   return (

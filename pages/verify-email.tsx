@@ -1,10 +1,15 @@
 import { NextPage } from "next";
-import Image from "next/image";
+import { useEffect } from "react";
+import { auth, logout } from "../src/firebase/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Link from "next/dist/client/link";
 const VerifyEmail: NextPage = () => {
+  const [user, loading] = useAuthState(auth);
+
   return (
     <div className="verification section-padding">
       <div className="container h-100">
+        {console.log("User details: ", user)}
         <div className="row justify-content-center h-100 align-items-center">
           <div className="col-xl-5 col-md-6">
             <div className="mini-logo text-center my-4">
@@ -24,16 +29,16 @@ const VerifyEmail: NextPage = () => {
                     </span>
                     <p>
                       We sent verification email to{" "}
-                      <strong className="text-dark">example@email.com</strong>.
+                      <strong className="text-dark">{user?.email}</strong>.
                       Click the link inside to get started!
                     </p>
-                    <Link href="/dashboard">Go to Dashboard</Link>
+                    {/* <Link href="/dashboard">Go to Dashboard</Link> */}
                   </div>
                 </form>
               </div>
-              <div className="card-footer text-center">
+              {/* <div className="card-footer text-center">
                 <Link href="/signup">{`Email didn't arrive?`}</Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

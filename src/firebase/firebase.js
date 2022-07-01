@@ -6,6 +6,7 @@ import {
     sendPasswordResetEmail,
     signOut,
     RecaptchaVerifier,
+    sendEmailVerification,
     signInWithPhoneNumber 
   } from "firebase/auth";
   import * as firebase from 'firebase/app'
@@ -73,6 +74,8 @@ import toast from 'react-hot-toast';
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
+      await sendEmailVerification(user);
+      router.push("/verify-email");
       createUser({
         userId: user.uid,
         name,
@@ -93,6 +96,7 @@ import toast from 'react-hot-toast';
       console.error(err);
     //   alert(err.message);
     }
+
   };
   const sendPasswordReset = async (email) => {
     try {
