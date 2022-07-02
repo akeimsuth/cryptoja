@@ -80,15 +80,15 @@ const Dashboard: NextPage = () => {
 ];
 
 
-  useEffect(() => {
-    setFormData({ ...formData, btc: (parseFloat(formData.usd) / btcAmount).toString() });
-    if (formData.usd === "") {
-      setFormData({ ...formData, btc: "0"})
-    }
-  }, [formData.usd, btcAmount])
+  // useEffect(() => {
+  //   setFormData({ ...formData, btc: (parseFloat(formData.usd) / btcAmount).toString() });
+  //   if (formData.usd === "") {
+  //     setFormData({ ...formData, btc: "0"})
+  //   }
+  // }, [formData.usd, btcAmount])
 
-  const onChange = (e: any) =>
-  setFormData({ ...formData, [e.target.name]: e.target.value });
+  // const onChange = (e: any) =>
+  // setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const quickBuy = () => {
     if (user) {
@@ -159,32 +159,7 @@ const Dashboard: NextPage = () => {
     }
   }
 
-  const changeCurrency = (e: any) => {
-    switch (e.target.value) {
-      case "usd":
-        setCurrency(formData.usd)
-        break;
-      case "jmd":
-        const formJMD = parseFloat(formData.usd) * 148.06
-        setCurrency(formJMD.toString())
-        break;
-      default:
-        break;
-    }
-  }
 
-  const changeCoins = (e: any) => {
-    switch (e.target.value) {
-      case "bitcoin":
-        setBtcAmount(altCoins?.bitcoin);
-        break;
-        case "ethereum":
-          setBtcAmount(altCoins?.ethereum);
-          break;
-      default:
-        break;
-    }
-  }
 
   const generateCoin = async() => {
     try {

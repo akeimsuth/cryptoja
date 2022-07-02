@@ -129,7 +129,7 @@ const BuySellForm: FC<{ name?: string; color?: string; title?: string }> = ({
   useEffect(() => {
     generateCoin();
     showTransactions();
-  },[user, showTransactions])
+  },[user])
 
   const val = {coinAmount: formData.btc, dollarAmount: formData.usd, type: name}
 
