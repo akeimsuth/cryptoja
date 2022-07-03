@@ -101,10 +101,10 @@ import toast from 'react-hot-toast';
   const sendPasswordReset = async (email) => {
     try {
       await sendPasswordResetEmail(auth, email);
-      alert("Password reset link sent!");
+      toast.success("Password reset link sent!");
     } catch (err) {
       console.error(err);
-      alert(err.message);
+      toast.error("User not found!");
     }
   };
   const logout = () => {

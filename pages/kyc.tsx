@@ -71,8 +71,8 @@ const KYC: NextPage = () => {
       if (user) {
           await updateUser(user?.uid, {
               idType: id,
-              idFront: docsFront.length > 1 ? docsFront[0] : "",
-              idBack: docsBack.length > 1 ? docsBack[0] : "",
+              idFront: docsFront.length > 0 ? docsFront : "",
+              idBack: docsBack.length > 0 ? docsBack : "",
               passportName: name,
               passportDate: dob,
               passportNumber,
@@ -87,19 +87,19 @@ const KYC: NextPage = () => {
   const addFrontDocs = (value: any) => {
     console.log(value);
     value.map((inf: any) => customFrontDocs.push(inf?.fileUrl));
-    setFrontDocs(customFrontDocs);
+    setFrontDocs(value[0]?.fileUrl);
     console.log("Custom Docs: ",customFrontDocs)
   };
   const addBackDocs = (value: any) => {
     console.log(value);
     value.map((inf: any) => customBackDocs.push(inf?.fileUrl));
-    setBackDocs(customBackDocs);
+    setBackDocs(value[0]?.fileUrl);
     console.log("Custom Docs: ",customBackDocs)
   };
   const addSelfie = (value: any) => {
     console.log(value);
     value.map((inf: any) => customSelfie.push(inf?.fileUrl));
-    setSelfie(customSelfie);
+    setSelfie(value[0]?.fileUrl);
   };
 
 
@@ -116,7 +116,8 @@ const KYC: NextPage = () => {
             <div className="mini-logo text-center my-4">
               <Link href="/">
                 <a>
-                  <img src="/images/logo.png" alt="" />
+                  <img src="/images/logo.png" alt="" width="45"/>
+                  <strong className="text-dark">Tokenomyja</strong>
                 </a>
               </Link>
               <h4 className="card-title mt-5">Add KYC Documents</h4>

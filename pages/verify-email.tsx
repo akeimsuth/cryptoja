@@ -6,6 +6,12 @@ import Link from "next/dist/client/link";
 const VerifyEmail: NextPage = () => {
   const [user, loading] = useAuthState(auth);
 
+  useEffect(() => {
+    setTimeout(() => {
+      logout();
+    }, 2000)
+  },[])
+
   return (
     <div className="verification section-padding">
       <div className="container h-100">
@@ -15,7 +21,8 @@ const VerifyEmail: NextPage = () => {
             <div className="mini-logo text-center my-4">
               <Link href="/">
                 <a>
-                  <img src="/images/logo.png" alt="" />
+                  <img src="/images/logo.png" alt=""  width="45"/>
+                  <strong className="text-dark">Tokenomyja</strong>
                 </a>
               </Link>
               <h4 className="card-title mt-5">Verify your Email</h4>

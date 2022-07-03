@@ -147,7 +147,7 @@ const Index: NextPage = () => {
             <div className="col-xl-6 col-lg-6 col-12">
               <div className="intro-content">
                 <h1 className="text-dark">
-                  Trade with <strong className="text-success">CryptoJa</strong>.
+                  Trade with <strong className="text-success">Tokenomyja</strong>.
                   <br />
                   Buy and sell cryptocurrency
                 </h1>

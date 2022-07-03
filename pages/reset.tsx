@@ -2,7 +2,10 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
+import { auth, sendPasswordReset } from "../src/firebase/firebase";
 import { useState } from "react";
+import toast, {Toaster} from "react-hot-toast";
+
 const Reset: NextPage = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -16,18 +19,28 @@ const Reset: NextPage = () => {
     e.preventDefault();
     setError(true);
     if (email) {
-      router.push("/verify-email");
+      sendPasswordReset(email);
+      // router.push("/verify-email");
+    } else {
+      toast.error("Email required")
     }
   };
+
   return (
     <div className="authincation section-padding">
+      <Toaster/>
       <div className="container h-100">
         <div className="row justify-content-center h-100 align-items-center">
           <div className="col-xl-4 col-md-5">
             <div className="mini-logo text-center my-3">
               <Link href="/">
                 <a>
-                  <img src="/images/logo.png" alt="" />
+                  <img 
+                  src="/images/logo.png" 
+                  alt="" 
+                  width="45"
+                  />
+                  <strong className="text-dark">Tokenomyja</strong>
                 </a>
               </Link>
               <h4 className="card-title mt-5">Reset Password</h4>
@@ -56,9 +69,9 @@ const Reset: NextPage = () => {
                 </form>
                 <div className="new-account mt-3">
                   <p>
-                    {`Don't get code?`}{" "}
-                    <Link href="/otp-1">
-                      <a className="text-primary">Resend</a>
+                    {`Back to sign in?`}{" "}
+                    <Link href="/signin">
+                      <a className="text-primary">Click here</a>
                     </Link>
                   </p>
                 </div>

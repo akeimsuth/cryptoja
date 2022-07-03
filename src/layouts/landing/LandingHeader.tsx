@@ -44,12 +44,15 @@ const LandingHeader: NextPage = () => {
                         src="/images/logo.png"
                         alt="Logo"
                         className="logo-primary"
+                        width="45"
+                        height="45"
                       />
-                      <img
+                      {/* <img
                         src="/images/logow.png"
                         alt="Logo"
                         className="logo-white"
-                      />
+                      /> */}
+                      <strong className="text-dark">Tokenomyja</strong>
                     </a>
                   </Link>
                 </div>
@@ -69,7 +72,7 @@ const LandingHeader: NextPage = () => {
                         className={`nav-link ${classNameChange("home")}`}
                         href="/"
                         // data-toggle="dropdown"
-                        onClick={() => setValue("home")}
+                        // onClick={() => setValue("home")}
                       >
                         Home
                       </a>
@@ -128,13 +131,13 @@ const LandingHeader: NextPage = () => {
                     <li className="nav-item dropdown">
                       <a
                         className="nav-link dropdown-toggle"
-                        href="#"
+                        href="/contact"
                         data-toggle="dropdown"
-                        onClick={() => setValue("Support")}
+                        // onClick={() => setValue("Support")}
                       >
-                        Support
+                        Contact
                       </a>
-                      <div
+                      {/* <div
                         className={`dropdown-menu ${classNameChange(
                           "Support"
                         )}`}
@@ -151,7 +154,7 @@ const LandingHeader: NextPage = () => {
                         <Link href="/faq">
                           <a className="dropdown-item">FAQ</a>
                         </Link>
-                      </div>
+                      </div> */}
                     </li>
                     {/* {((user && details?.kyc === 'required') && details?.role !== "admin") &&
                         <li className="nav-item">

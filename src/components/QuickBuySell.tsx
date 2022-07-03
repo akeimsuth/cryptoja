@@ -103,8 +103,14 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   }
 
   useEffect(() => {
-    if (currency === "jmd") {
-      setFormData({ ...formData, btc: (parseFloat(formData.usd) / coinAmount).toString() });
+    if (currency === "jmd" && title === "Buy") {
+      setFormData({ ...formData, btc: (parseFloat(formData.usd) / (btcAmount*148)) - ((parseFloat(formData.usd) / (btcAmount*148)) * 0.15).toString() });
+    } else if (currency === "jmd" && title === "Sell") {
+      setFormData({ ...formData, usd: ((parseFloat(formData.btc) * 148 * btcAmount) - ((parseFloat(formData.btc) * 148 * btcAmount) * 0.15)).toString() })
+    } else if (currency === "usd" && title === "Sell") {
+      setFormData({ ...formData, usd: ((parseFloat(formData.btc) * btcAmount) - ((parseFloat(formData.btc) * btcAmount) * 0.15)).toString() })
+    } else if (currency === "usd" && title === "Buy") {
+      setFormData({ ...formData, btc: (parseFloat(formData.usd) / (btcAmount)) - ((parseFloat(formData.usd) / (btcAmount)) * 0.15).toString() });
     } else {
       setFormData({ ...formData, btc: (parseFloat(formData.usd) / btcAmount).toString() });
     }
@@ -277,31 +283,12 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
           }}
           className="currency_validate trade-form row g-3"
         >
-          <div className="col-12">
-            <label className="form-label">Receive</label>
-            <div className="input-group">
-              <select className="form-control" name="method">
-                <option value="bank">USD</option>
-                <option value="master">JMD</option>
-              </select>
-              <input
-                type="number"
-                name="usd"
-                min="100"
-                className="form-control"
-                placeholder={`${coin} USD`}
-                value={usd}
-                onChange={(e) => onChange(e)}
-              />
-            </div>
-          </div>
-
-          <div className="col-12">
+        <div className="col-12">
             <label className="form-label">Send</label>
             <div className="input-group">
-              <select className="form-control" name="method">
-                <option value="bank">BTC</option>
-                <option value="master">ETH</option>
+              <select className="form-control" name="method" onChange={(e) => changeCoins(e)}>
+                <option value="bitcoin">BTC</option>
+                <option value="ethereum">ETH</option>
               </select>
               <input
                 type="text"
@@ -313,6 +300,27 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
               />
             </div>
           </div>
+          <div className="col-12">
+            <label className="form-label">Receive</label>
+            <div className="input-group">
+              <select className="form-control" name="method" onChange={(e) => changeCurrency(e)}>
+                <option value="jmd">JMD</option>
+                <option value="usd">USD</option>
+              </select>
+              <input
+                type="number"
+                name="usd"
+                min="100"
+                disabled
+                className="form-control"
+                placeholder={`${coin} USD`}
+                value={usd}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+          </div>
+
+
 
           <p className="mb-0">
           {`1 BTC ~ $${coin} USD `}

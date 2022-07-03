@@ -10,7 +10,7 @@ const DashboardHeader: FC = () => {
           <div className="col-xxl-12">
             <div className="header-content">
               <div className="header-left">
-                <div className="search">
+                {/* <div className="search">
                   <form action="#" onSubmit={(e) => e.preventDefault()}>
                     <div className="input-group">
                       <input
@@ -23,7 +23,7 @@ const DashboardHeader: FC = () => {
                       </span>
                     </div>
                   </form>
-                </div>
+                </div> */}
               </div>
 
               <div className="header-right">
@@ -35,7 +35,7 @@ const DashboardHeader: FC = () => {
                     <i className="bi bi-brightness-high"></i>
                   </span>
                 </div>
-                <NotificationToggle />
+                {/* <NotificationToggle /> */}
                 <ToggleHeaderUser />
               </div>
             </div>

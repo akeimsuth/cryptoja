@@ -48,7 +48,8 @@ const Otp2: NextPage = () => {
             <div className="mini-logo text-center my-3">
               <Link href="/">
                 <a>
-                  <img src="/images/logo.png" alt="" />
+                  <img src="/images/logo.png" alt="" width="45"/>
+                  <strong className="text-dark">Tokenomyja</strong>
                 </a>
               </Link>
               <h4 className="card-title mt-5">2-Step Verification</h4>
@@ -89,7 +90,7 @@ const Otp2: NextPage = () => {
                       </button>
                     </div>
                   </div>
-                  <div className="col-12">
+                  {/* <div className="col-12">
                     <div className="form-check form-switch">
                       <input
                         type="checkbox"
@@ -106,7 +107,7 @@ const Otp2: NextPage = () => {
                         </small>
                       </label>
                     </div>
-                  </div>
+                  </div> */}
                 </form>
                 <div className="new-account mt-3">
                   <p>

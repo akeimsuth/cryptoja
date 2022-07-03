@@ -26,7 +26,7 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
       >
         <div className="modal-content border-0">
           <div className="modal-header">
-            <h5 className="modal-title">Approve details for User</h5>
+            <h5 className="modal-title">{`Approve details for ${values?.name}`}</h5>
             <button
               type="button"
               className="btn-close"
@@ -36,7 +36,7 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
             ></button>
           </div>
           <div className="modal-body">
-              {values?.idType === "passport" ?
+              {/* {values?.idType === "passport" ?
               
               <form
               onSubmit={(e) => e.preventDefault()}
@@ -74,9 +74,9 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
                   <img src="/images/routing.png" alt="" className="img-fluid" />
                 </div>
               </div>
-            </form>
+            </form> */}
 
-            :
+            
 
             <form
             onSubmit={(e) => e.preventDefault()}
@@ -85,25 +85,30 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
             <div className="row g-3">
               <div className="col-xl-12">
                 <label className="form-label">{`${values?.idType} front image`} </label>
-                <img src={values?.idFront} alt="" className="img-fluid" />
+                <hr/>
+                <img src={values?.idFront[0]} alt="" className="img-fluid" width="300"/>
               </div>
+              {values?.idType !== "passport" &&
+                <div className="col-xl-12">
+                  <label className="form-label">{`${values?.idType} back image`} </label>
+                  <hr/>
+                  <img src={values?.idBack[0]} alt="" className="img-fluid" width="300"/>
+                </div>
+              }
               <div className="col-xl-12">
-              <label className="form-label">{`${values?.idType} back image`} </label>
-                <img src={values?.idBack} alt="" className="img-fluid" />
-              </div>
-              <div className="col-xl-12">
-              <label className="form-label">{`${values?.idType} selfie`} </label>
-                <img src={values?.selfie} alt="" className="img-fluid" />
+                <label className="form-label">{`${values?.idType} selfie`} </label>
+                <hr/>
+                <img src={values?.selfie[0]} alt="" className="img-fluid" width="350"/>
               </div>
             </div>
           </form>
             
-}
+
           </div>
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-success"
               data-dismiss="modal"
               data-toggle="modal"
               data-target="#successBankAccount"
@@ -113,7 +118,7 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
                 onComplete();
               }}
             >
-              Confirm
+              Approve
             </button>
           </div>
         </div>

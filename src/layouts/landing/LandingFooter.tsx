@@ -10,10 +10,16 @@ const LandingFooter: NextPage = () => {
           <div className="row">
             <div className="col-xl-4">
               <div className="bottom-logo">
-                <img className="pb-3" src="/images/logow.png" alt="" />
+                <img 
+                className="pb-3" 
+                src="/images/logo.png" 
+                alt="" 
+                width="45"
+                height="55"
+                />
 
                 <p>
-                  Cryptoja is a platform to allow users to buy and sell crypto coins locally
+                  Tokenomyja is a platform to allow users to buy and sell crypto coins locally
                 </p>
               </div>
             </div>
@@ -105,7 +111,7 @@ const LandingFooter: NextPage = () => {
                 <p>
                   © Copyright {new Date().getFullYear()}{" "}
                   <Link href="/">
-                    <a target="_blank"> CryptoJa </a>
+                    <a target="_blank"> Tokenomyja </a>
                   </Link>
                   I All Rights Reserved
                 </p>
