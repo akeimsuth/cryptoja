@@ -23,25 +23,19 @@ const LandingFooter: NextPage = () => {
                 </p>
               </div>
             </div>
-            <div className="col-xl-2">
+            {/* <div className="col-xl-2">
               <div className="bottom-widget">
                 <h4 className="widget-title">Company</h4>
                 <ul>
                   <li>
                     <Link href="/about">About</Link>
                   </li>
-                  {/* <li>
-                    <Link href="/career">Career</Link>
-                  </li>
-                  <li>
-                    <Link href="/app">App</Link>
-                  </li> */}
                   <li>
                     <Link href="/team">Our Team</Link>
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
             <div className="col-xl-2">
               <div className="bottom-widget">
                 <h4 className="widget-title">Support</h4>
@@ -49,9 +43,9 @@ const LandingFooter: NextPage = () => {
                   <li>
                     <Link href="/contact">Contact us</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/faq">FAQ</Link>
-                  </li>
+                  </li> */}
                   {/* <li>
                     <Link href="/blog">Blog</Link>
                   </li>
@@ -118,7 +112,7 @@ const LandingFooter: NextPage = () => {
               </div>
             </div>
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-              <div className="footer-social">
+              {/* <div className="footer-social">
                 <ul>
                   <li>
                     <a href="#">
@@ -141,7 +135,7 @@ const LandingFooter: NextPage = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

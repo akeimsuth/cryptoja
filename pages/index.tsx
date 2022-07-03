@@ -549,27 +549,28 @@ const Index: NextPage = () => {
                         <div className="customer-img">
                           <img
                             className="img-fluid"
-                            src="/images/testimonial/1.jpg"
+                            src="/images/testimonial/review1.jpg"
                             alt="Image"
                           />
                         </div>
                       </div>
                       <div className="col-xl-6 col-lg-6">
                         <div className="customer-review">
-                          <img
+                          {/* <img
                             className="img-fluid"
                             src="/images/brand/2.webp"
                             alt="Image"
-                          />
+                          /> */}
                           <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Nisi voluptas dignissimos similique quas
-                            molestiae doloribus recusandae voluptatem et
-                            repudiandae veritatis.
+                            It's been a relief working with a 
+                            local company to build my trading portfolio.
+                            You guys have helped me successfully start my journey onto
+                            being financially free.
+                            Thanks and keep up the good work
                           </p>
                           <div className="customer-info">
-                            <h6>Andre Sinclair</h6>
-                            <p>CEO, CryptoJa</p>
+                            <h6>James Dawson</h6>
+                            <p>Independent Thinker</p>
                           </div>
                         </div>
                       </div>

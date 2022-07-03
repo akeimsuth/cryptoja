@@ -26,7 +26,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   const [usBtcAmount, setUsBtcAmount] = useState<any>();
   const [currency, setCurrency] = useState<any>("jmd");
   const [user, loading] = useAuthState(auth);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<any>({
     usd: "",
     btc: ""
   });
@@ -104,13 +104,13 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
 
   useEffect(() => {
     if (currency === "jmd" && title === "Buy") {
-      setFormData({ ...formData, btc: (parseFloat(formData.usd) / (btcAmount*148)) - ((parseFloat(formData.usd) / (btcAmount*148)) * 0.15).toString() });
+      setFormData({ ...formData, btc: (parseFloat(formData.usd) / (btcAmount*148)) - ((parseFloat(formData.usd) / (btcAmount*148)) * 0.15) });
     } else if (currency === "jmd" && title === "Sell") {
       setFormData({ ...formData, usd: ((parseFloat(formData.btc) * 148 * btcAmount) - ((parseFloat(formData.btc) * 148 * btcAmount) * 0.15)).toString() })
     } else if (currency === "usd" && title === "Sell") {
       setFormData({ ...formData, usd: ((parseFloat(formData.btc) * btcAmount) - ((parseFloat(formData.btc) * btcAmount) * 0.15)).toString() })
     } else if (currency === "usd" && title === "Buy") {
-      setFormData({ ...formData, btc: (parseFloat(formData.usd) / (btcAmount)) - ((parseFloat(formData.usd) / (btcAmount)) * 0.15).toString() });
+      setFormData({ ...formData, btc: (parseFloat(formData.usd) / (btcAmount)) - ((parseFloat(formData.usd) / (btcAmount)) * 0.15) });
     } else {
       setFormData({ ...formData, btc: (parseFloat(formData.usd) / btcAmount).toString() });
     }
