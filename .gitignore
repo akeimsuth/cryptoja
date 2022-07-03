@@ -49,7 +49,7 @@ node_modules/
 
 # Optional npm cache directory
 .npm
-
+.next
 # Optional eslint cache
 .eslintcache
 

@@ -95,7 +95,7 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
                   </tr> */}
                   <tr>
                     <td>Coin Amount</td>
-                    <td>{`${values.coinAmount} BTC`}</td>
+                    <td>{`${values.coinAmount} ${values?.symbol}`}</td>
                   </tr>
                   <tr>
                     <td>Fee</td>

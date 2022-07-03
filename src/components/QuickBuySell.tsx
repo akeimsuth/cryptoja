@@ -13,6 +13,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   const [show, setShow] = useState(false);
   const [transactions, setTransactions] = useState([]);
   const [coin, setCoin] = useState<any>();
+  const [coinSymbol, setCoinSymbol] = useState<any>('BTC');
   const [coinAmount, setCoinAmount] = useState<any>();
   const [altCoins, setAltCoins] = useState<any>();
   const [title, setTitle] = useState<any>('Buy');
@@ -104,26 +105,28 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
 
   useEffect(() => {
     if (currency === "jmd" && title === "Buy") {
-      setFormData({ ...formData, btc: (parseFloat(formData.usd) / (btcAmount*148)) - ((parseFloat(formData.usd) / (btcAmount*148)) * 0.15) });
+      setFormData({ ...formData, btc: ((parseFloat(formData.usd) / (coinAmount)) - ((parseFloat(formData.usd) / (coinAmount)) * 0.15)).toString() });
+      console.log(formData)
     } else if (currency === "jmd" && title === "Sell") {
-      setFormData({ ...formData, usd: ((parseFloat(formData.btc) * 148 * btcAmount) - ((parseFloat(formData.btc) * 148 * btcAmount) * 0.15)).toString() })
+      setFormData({ ...formData, usd: ((parseFloat(formData.btc) * coinAmount) - ((parseFloat(formData.btc) * coinAmount) * 0.15)).toString() })
     } else if (currency === "usd" && title === "Sell") {
       setFormData({ ...formData, usd: ((parseFloat(formData.btc) * btcAmount) - ((parseFloat(formData.btc) * btcAmount) * 0.15)).toString() })
     } else if (currency === "usd" && title === "Buy") {
-      setFormData({ ...formData, btc: (parseFloat(formData.usd) / (btcAmount)) - ((parseFloat(formData.usd) / (btcAmount)) * 0.15) });
-    } else {
-      setFormData({ ...formData, btc: (parseFloat(formData.usd) / btcAmount).toString() });
-    }
-    if (formData.usd === "") {
+      setFormData({ ...formData, btc: ((parseFloat(formData.usd) / (btcAmount)) - ((parseFloat(formData.usd) / (btcAmount)) * 0.15)).toString() });
+    } 
+    // else {
+    //   setFormData({ ...formData, btc: (parseFloat(formData.usd) / btcAmount).toString() });
+    // }
+    else if (formData.usd === "") {
       setFormData({ ...formData, btc: ""})
     }
-  }, [currency, formData, btcAmount])
+  }, [currency, usd, coinSymbol])
 
   const generateCoin = async() => {
     try {
       const coinGeckoApi = new CoinGeckoApi()
       const results = await coinGeckoApi.simple({
-        ids: ['Bitcoin', 'Ethereum', 'Binance Coin', 'XRP'],
+        ids: ['Bitcoin', 'Ethereum', 'Dogecoin', 'Litecoin', 'Cardano', 'BNB'],
         vs_currencies: 'usd'
       })
       console.log(results)
@@ -137,8 +140,9 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
       setAltCoins({
         bitcoin: results.bitcoin.usd,
         ethereum: results.ethereum.usd,
-        // binance: results.binance.usd,
-        // xrp: results.xrp.usd
+        litecoin: results.litecoin.usd,
+        cardano: results.cardano.usd,
+        dogecoin: results.dogecoin.usd
       })
     } catch (err) {
       // do something with the error
@@ -148,12 +152,29 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   const changeCoins = (e: any) => {
     switch (e.target.value) {
       case "bitcoin":
+        setCoinSymbol('BTC')
         setCoinAmount(altCoins?.bitcoin * 148)
         setBtcAmount(altCoins?.bitcoin);
         break;
         case "ethereum":
+          setCoinSymbol('ETH')
           setCoinAmount(altCoins?.ethereum * 148)
           setBtcAmount(altCoins?.ethereum);
+          break;
+        case "dogecoin":
+          setCoinSymbol('DOGE')
+          setCoinAmount(altCoins?.dogecoin * 148)
+          setBtcAmount(altCoins?.dogecoin);
+          break;
+        case "litecoin":
+          setCoinSymbol('LTC')
+          setCoinAmount(altCoins?.litecoin * 148)
+          setBtcAmount(altCoins?.litecoin);
+          break;
+        case "cardano":
+          setCoinSymbol('ADA')
+          setCoinAmount(altCoins?.cardano * 148)
+          setBtcAmount(altCoins?.cardano);
           break;
       default:
         break;
@@ -174,11 +195,14 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   }
 
   useEffect(() => {
-    generateCoin();
     showTransactions();
   },[user])
 
-  const val = {coinAmount: formData.btc, dollarAmount: formData.usd, type: title}
+  useEffect(() => {
+    generateCoin();
+  },[user])
+
+  const val = {coinAmount: formData.btc, dollarAmount: formData.usd, type: title, symbol: coinSymbol}
 
   return (
     <div className="card">
@@ -243,9 +267,13 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
                 <select className="form-control" name="method" onChange={(e) => changeCoins(e)}>
                     <option value="bitcoin">BTC</option>
                     <option value="ethereum">ETH</option>
+                    <option value="litecoin">LTC</option>
+                    <option value="cardano">ADA</option>
+                    <option value="dogecoin">DOGE</option>
                 </select>
                 <input
-                    type="text"
+                    disabled
+                    type="number"
                     name="btc"
                     className="form-control"
                     // placeholder="1 BTC"

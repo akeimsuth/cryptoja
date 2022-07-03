@@ -562,7 +562,7 @@ const Index: NextPage = () => {
                             alt="Image"
                           /> */}
                           <p>
-                            It's been a relief working with a 
+                            It has been a relief working with a 
                             local company to build my trading portfolio.
                             You guys have helped me successfully start my journey onto
                             being financially free.
