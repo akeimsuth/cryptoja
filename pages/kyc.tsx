@@ -108,6 +108,9 @@ const KYC: NextPage = () => {
     apiKey: "public_kW15asXEPzdw8MmQUwtuPugqv4Gw"
   });
   return (
+    !user ?
+    <></>
+    :
     <div className="authincation section-padding">
         <Toaster/>
       <div className="container h-100">
