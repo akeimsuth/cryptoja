@@ -9,7 +9,7 @@ import SettingsLayouts from "../src/layouts/dashboard/SettingsLayouts";
 import { getUser } from "../src/services/UserService";
 const ProfileSetting: NextPage = () => {
   const [formData, setFormData] = useState({
-    name: "Jannatul Maowa",
+    name: "",
   });
   const [error, setError] = useState(false);
   const [user, loading] = useAuthState(auth);

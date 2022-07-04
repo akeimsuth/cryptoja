@@ -201,7 +201,7 @@ const PriceDetails: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+            {/* <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
               <div className="card">
                 <div className="card-body">
                   <div className="invite-content">
@@ -362,7 +362,7 @@ const PriceDetails: NextPage = () => {
                   </form>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

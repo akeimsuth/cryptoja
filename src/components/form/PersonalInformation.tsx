@@ -70,7 +70,7 @@ const PersonalInformation: FC = () => {
       error && !value ? "is-invalid" : ""
     }`;
   return (
-    !formData?.name ?
+    !userDetails ?
     <PreLoader/>
     :
     <>

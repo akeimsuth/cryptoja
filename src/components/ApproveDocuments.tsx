@@ -86,19 +86,19 @@ const ApproveDocuments: FC<{ show?: boolean; close?: any, values?: any, onComple
               <div className="col-xl-12">
                 <label className="form-label">{`${values?.idType} front image`} </label>
                 <hr/>
-                <img src={values?.idFront[0]} alt="" className="img-fluid" width="300"/>
+                <img src={values?.idFront} alt="" className="img-fluid" width="300"/>
               </div>
               {values?.idType !== "passport" &&
                 <div className="col-xl-12">
                   <label className="form-label">{`${values?.idType} back image`} </label>
                   <hr/>
-                  <img src={values?.idBack[0]} alt="" className="img-fluid" width="300"/>
+                  <img src={values?.idBack} alt="" className="img-fluid" width="300"/>
                 </div>
               }
               <div className="col-xl-12">
                 <label className="form-label">{`${values?.idType} selfie`} </label>
                 <hr/>
-                <img src={values?.selfie[0]} alt="" className="img-fluid" width="350"/>
+                <img src={values?.selfie} alt="" className="img-fluid" width="350"/>
               </div>
             </div>
           </form>
