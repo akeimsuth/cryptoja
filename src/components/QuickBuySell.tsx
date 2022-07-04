@@ -5,6 +5,7 @@ import { auth } from "../../src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ConfirmationModal from "./ConfirmationModal";
 import { createTransaction, getTransaction } from "../services/TransactionService";
+import { getUser } from "../services/UserService";
 
 const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   name,
@@ -12,6 +13,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
 }) => {
   const [show, setShow] = useState(false);
   const [transactions, setTransactions] = useState([]);
+  const [userDetails, setUserDetails] = useState<any>();
   const [coin, setCoin] = useState<any>();
   const [coinSymbol, setCoinSymbol] = useState<any>('BTC');
   const [coinAmount, setCoinAmount] = useState<any>();
@@ -33,19 +35,6 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   });
   const { usd, btc } = formData;
 
-  // useEffect(() => {
-  //   setFormData({ ...formData, btc: calculatePercent().toString() });
-  //   if (formData.usd === "") {
-  //     setFormData({ ...formData, btc: ""})
-  //   }
-  // }, [formData.usd])
-
-  const calculatePercent = () => {
-    if (title === 'Buy'){
-      return (parseFloat(formData.usd) / (btcAmount*148)) - ((parseFloat(formData.usd) / (btcAmount*148)) * 0.15)
-    }
-    return parseFloat(formData.usd) / btcAmount
-  }
 
   const onChange = (e: any) =>
   setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -58,6 +47,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
         "currency": currency,
         "amount": formData.usd,
         "type": title,
+        "user": userDetails,
         "wallet": wallet,
       })
       .then( res => {
@@ -197,8 +187,17 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
     }
   }
 
+  const showUserDetails = () => {
+    if (user) {
+      getUser(user.uid)
+      .then(res => setUserDetails(res.data))
+      .catch(error => console.log(error))
+    }
+  }
+
   useEffect(() => {
     showTransactions();
+    showUserDetails();
   },[user])
 
   useEffect(() => {

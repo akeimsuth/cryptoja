@@ -134,11 +134,11 @@ const Trade: NextPage = () => {
   const ExpandedComponent = ({ data }) =>  <div style={{paddingTop:"1rem"}} className="col-xl-12">
       
       <label className="form-label">Name: </label>
-      <span>{data?.name}</span> <br/>
+      <span>{data?.user?.name}</span> <br/>
       <label className="form-label">Email: </label>
-      <span>{data?.email}</span> <br/>
+      <span>{data?.user?.email}</span> <br/>
       <label className="form-label">Phone: </label>
-      <span>{data?.phone}</span> <br/>
+      <span>{data?.user?.phone}</span> <br/>
       <label className="form-label">Wallet Address: </label>
       <span>{data?.wallet?.address}</span> <br/>
       {/* <label className="form-label">Transaction ID</label> */}
