@@ -22,6 +22,10 @@ const Wallet: NextPage = () => {
         selector: row => row.phone,
     },
     {
+      name: 'Email',
+      selector: row => row.email,
+  },
+    {
       name: 'Address',
       selector: row => row.address
     },

@@ -1,12 +1,12 @@
 import { FC, useState, useEffect } from "react";
-import { auth } from "../../../src/firebase/firebase";
+import { auth, updateUserEmail, updateUserPassword } from "../../../src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getUser } from "../../services/UserService";
 
 const Profile: FC = () => {
   const [error, setError] = useState(false);
   const [user, loading] = useAuthState(auth);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<any>({
     email: "",
     password: "",
   });
@@ -15,8 +15,13 @@ const Profile: FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = (e: any) => {
     e.preventDefault();
+    if(email && password) {
+      updateUserEmail(email)
+      updateUserPassword(password)
+    }
     setError(true);
   };
+
 
   const classNameChange = (value: string, extClassName?: string) =>
     `${extClassName ? extClassName : "form-control"} ${
@@ -34,6 +39,7 @@ const Profile: FC = () => {
               <div className="col-xxl-12">
                 <label className="form-label">New Email</label>
                 <input
+                  required
                   type="email"
                   className={classNameChange(email)}
                   value={email}
@@ -44,6 +50,7 @@ const Profile: FC = () => {
               <div className="col-xxl-12">
                 <label className="form-label">New Password</label>
                 <input
+                  required
                   type="password"
                   className={classNameChange(password)}
                   value={password}
@@ -55,7 +62,7 @@ const Profile: FC = () => {
                 </small> */}
               </div>
               <div className="col-12">
-                <button className="btn btn-success waves-effect">Save</button>
+                <button disabled={!email && !password} className="btn btn-success waves-effect">Save</button>
               </div>
             </div>
           </form>

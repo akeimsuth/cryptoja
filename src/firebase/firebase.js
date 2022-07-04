@@ -7,7 +7,9 @@ import {
     signOut,
     RecaptchaVerifier,
     sendEmailVerification,
-    signInWithPhoneNumber 
+    signInWithPhoneNumber ,
+    updateEmail,
+    updatePassword
   } from "firebase/auth";
   import * as firebase from 'firebase/app'
   import {
@@ -53,6 +55,28 @@ import toast from 'react-hot-toast';
     }).catch((error) => {
       toast.error("Code failed to be sent!")
     });
+  }
+
+  const updateUserEmail = async (email) => {
+    try {
+      const val = await updateEmail(auth.currentUser, email)
+      if (val){
+        console.log(val);
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const updateUserPassword = async (password) => {
+    try {
+      const val = await updateEmail(auth.currentUser, password)
+      if (val){
+        console.log(val);
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const logInWithEmailAndPassword = async (email, password) => {
@@ -117,5 +141,7 @@ import toast from 'react-hot-toast';
     logInWithEmailAndPassword,
     registerWithEmailAndPassword,
     sendPasswordReset,
+    updateUserEmail,
+    updateUserPassword,
     logout,
   };

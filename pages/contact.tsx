@@ -97,7 +97,7 @@ const Contact: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary px-4 py-2">
+                <button type="submit" className="btn btn-success px-4 py-2">
                   Send message
                 </button>
               </form>

@@ -27,7 +27,7 @@ const AddBankCardModal: FC<{ show?: boolean; close?: any }> = ({
     <i className="cc LTC"></i> Litecoin
   </span> }
   ]
-  const { name, address } = formData;
+  const { name, address, coinType } = formData;
   const onChange = (e: any) => 
   setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -43,7 +43,8 @@ const AddBankCardModal: FC<{ show?: boolean; close?: any }> = ({
     if(user){
       createWallet(user.uid, {
         name,
-        address
+        address,
+        coinType
       })
       .then( res => {
         console.log(res);

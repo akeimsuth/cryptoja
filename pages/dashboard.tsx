@@ -31,6 +31,7 @@ const AnalyticChart = dynamic(
 const Dashboard: NextPage = () => {
   const [transactions, setTransactions] = useState([]);
   const [show, setShow] = useState(false);
+  const [pending, setPending] = useState(true);
   const [formData, setFormData] = useState({
     usd: "",
     btc: ""
@@ -56,8 +57,8 @@ const Dashboard: NextPage = () => {
     {
       name: 'Type',
       selector: row => <>
-      <span className={row?.type === "sell" ? "danger-arrow" : "success-arrow"}>
-        <i className={row?.type === "sell" ? "icofont-arrow-down" : "icofont-arrow-up"}></i> {row.type}
+      <span className={row?.type === "Sell" ? "danger-arrow" : "success-arrow"}>
+        <i className={row?.type === "Sell" ? "icofont-arrow-down" : "icofont-arrow-up"}></i> {row.type}
       </span>
       </>,
     },
@@ -65,7 +66,7 @@ const Dashboard: NextPage = () => {
       name: 'Currency',
       selector: row => <>
         <span className="coin-name">
-          <i className="cc BTC"></i> {row?.coinCurrency}
+          <i className={`cc ${row?.coinCurrency}`}></i> {row?.coinCurrency}
         </span>
       </>,
     },
@@ -75,7 +76,7 @@ const Dashboard: NextPage = () => {
     },
     {
       name: 'Dollar Amount',
-      selector: row => `$${convertMoney(row?.amount)}`,
+      selector: row => <div title={`$${convertMoney(row?.amount)} ${(row?.currency)?.toUpperCase()}`} style={{overflow:"initial"}}>{`$${convertMoney(row?.amount)} ${(row?.currency)?.toUpperCase()}`}</div>,
     },
 ];
 
@@ -122,6 +123,7 @@ const Dashboard: NextPage = () => {
         setTransactions(res.data)
       })
       .catch(err => console.log(err))
+      .finally(() => setPending(false))
     }
   }
 
@@ -133,6 +135,7 @@ const Dashboard: NextPage = () => {
         setTransactions(res.data)
       })
       .catch(err => console.log(err))
+      .finally(() => setPending(false))
     }
   }
 
@@ -188,6 +191,14 @@ const Dashboard: NextPage = () => {
     showUserDetails();
   },[user])
 
+  const reloadCustomerTransactions = () => {
+    showTransactions();
+  }
+
+  const reloadAdminTransactions = () => {
+    showAllTransactions();
+  }
+
   useEffect(() => {
     if(userDetails?.role === "admin") {
       showAllTransactions();
@@ -207,7 +218,7 @@ const Dashboard: NextPage = () => {
       :
       <DashboardLayout>
         <Toaster/>
-        <ConfirmationModal show={show} close={setShow} purchase={quickBuy} values={val} />
+        <ConfirmationModal show={show} close={setShow} purchase={quickBuy} values={val} reload={reloadCustomerTransactions} />
         <div className="content-body">
           <div className="container-fluid">
             <div className="row">
@@ -686,6 +697,7 @@ const Dashboard: NextPage = () => {
                               columns={columns}
                               data={transactions}
                               pagination
+                              progressPending={pending}
                           />
                         </div>
                       </div>

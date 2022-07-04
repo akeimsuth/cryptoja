@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { auth, registerWithEmailAndPassword } from "../src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast, {Toaster} from "react-hot-toast";
 const Signup: NextPage = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -24,6 +25,7 @@ const Signup: NextPage = () => {
     e.preventDefault();
     setError(true);
     registerWithEmailAndPassword(`${firstName} ${lastName}`, email, password, phone, address);
+
     // if (name && email && password && phone && address) {
     //   router.push("/verify-email");
     // }
@@ -43,6 +45,7 @@ const Signup: NextPage = () => {
   return (
     <div className="authincation section-padding">
       <div className="container h-100">
+        <Toaster/>
         <div className="row justify-content-center h-100 align-items-center">
           <div className="col-xl-5 col-md-6">
             <div className="mini-logo text-center my-4">
@@ -69,6 +72,7 @@ const Signup: NextPage = () => {
                   <div className="col-12">
                   <label className="form-label">First Name</label>
                     <input
+                      required
                       type="text"
                       className={`form-control ${
                         error && !firstName ? "is-invalid" : ""
@@ -82,6 +86,7 @@ const Signup: NextPage = () => {
                   <div className="col-12">
                   <label className="form-label">Last Name</label>
                     <input
+                      required
                       type="text"
                       className={`form-control ${
                         error && !lastName ? "is-invalid" : ""
@@ -95,6 +100,7 @@ const Signup: NextPage = () => {
                   <div className="col-12">
                   <label className="form-label">Email</label>
                     <input
+                      required
                       type="email"
                       className={`form-control ${
                         error && !email ? "is-invalid" : ""
@@ -108,6 +114,7 @@ const Signup: NextPage = () => {
                   <div className="col-12">
                   <label className="form-label">Phone Number</label>
                     <input
+                      required
                       type="text"
                       className={`form-control ${
                         error && !phone ? "is-invalid" : ""
@@ -121,6 +128,7 @@ const Signup: NextPage = () => {
                   <div className="col-12">
                   <label className="form-label">Address</label>
                     <input
+                      required
                       type="text"
                       className={`form-control ${
                         error && !address ? "is-invalid" : ""
@@ -134,6 +142,7 @@ const Signup: NextPage = () => {
                   <div className="col-12">
                   <label className="form-label">Password</label>
                     <input
+                      required
                       type="password"
                       className={`form-control ${
                         error && !password ? "is-invalid" : ""

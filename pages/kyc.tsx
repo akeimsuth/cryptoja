@@ -36,9 +36,9 @@ const KYC: NextPage = () => {
     id: ""
   });
   const [error, setError] = useState(false);
-  const [docsFront, setFrontDocs] = useState([]);
-  const [docsBack, setBackDocs] = useState([]);
-  const [selfie, setSelfie] = useState([]);
+  const [docsFront, setFrontDocs] = useState<any>([]);
+  const [docsBack, setBackDocs] = useState<any>([]);
+  const [selfie, setSelfie] = useState<any>([]);
   const [user, loading] = useAuthState(auth);
   const customFrontDocs: any = [];
   const customBackDocs: any = [];
@@ -186,7 +186,8 @@ const KYC: NextPage = () => {
                             :
                             <UploadContainer style={{justifyContent: 'space-evenly'}}>
                                 {/* {docs.map((doc: any) => { */}
-                                 <img style={{objectFit:'contain', width: '30%', height: '30%'}} src={docsFront[0]}/>
+                                {console.log("Front: ", docsFront)}
+                                 <img style={{objectFit:'contain', width: '30%', height: '30%'}} src={docsFront}/>
                              
                    
                             </UploadContainer>
@@ -208,7 +209,7 @@ const KYC: NextPage = () => {
                         :
                         <UploadContainer style={{justifyContent: 'space-evenly'}}>
                             {/* {docs.map((doc: any) => { */}
-                                <img style={{objectFit:'contain', width: '30%', height: '30%'}} src={docsBack[0]}/>
+                                <img style={{objectFit:'contain', width: '30%', height: '30%'}} src={docsBack}/>
                            
                
                         </UploadContainer>
@@ -228,9 +229,9 @@ const KYC: NextPage = () => {
                         </UploadButton>
                         :
                         <UploadContainer>
-                        {selfie.map((doc: any, index: number) => {
-                            return <img key={`${new Date()} ${index}`} style={{objectFit:'contain', width: '50%', height: '50%'}} src={doc}/>
-                        })}
+                        {/* {selfie.map((doc: any, index: number) => { */}
+                            <img style={{objectFit:'contain', width: '50%', height: '50%'}} src={selfie}/>
+                        {/* })} */}
            
                     </UploadContainer>
                     }
@@ -276,9 +277,9 @@ const KYC: NextPage = () => {
                         </UploadButton>
                         :
                         <UploadContainer>
-                        {selfie.map((doc: any, index: number) => {
-                            return <img key={`${new Date()} ${index}`} style={{objectFit:'contain', width: '50%', height: '50%'}} src={doc}/>
-                        })}
+                        {/* {selfie.map((doc: any, index: number) => { */}
+                            <img style={{objectFit:'contain', width: '50%', height: '50%'}} src={selfie}/>
+                        {/* })} */}
            
                     </UploadContainer>
                     }
@@ -321,7 +322,7 @@ const KYC: NextPage = () => {
                   </div> */}
 
                   <div className="d-grid gap-2">
-                    <button type="submit" className="btn btn-success">
+                    <button disabled={selfie.length === 0 || docsFront.length === 0} type="submit" className="btn btn-success">
                       Send Documents
                     </button>
                   </div>

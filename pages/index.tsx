@@ -55,7 +55,7 @@ const Index: NextPage = () => {
     try {
       const coinGeckoApi = new CoinGeckoApi()
       const results = await coinGeckoApi.simple({
-        ids: ['Bitcoin', 'Ethereum', 'Tether'],
+        ids: ['Bitcoin', 'Ethereum', 'Litecoin', 'Cardano'],
         vs_currencies: 'usd'
       })
       console.log(results)
@@ -68,7 +68,9 @@ const Index: NextPage = () => {
       setUsBtcAmount(resUSD);
       setAltCoins({
         bitcoin: results.bitcoin.usd,
-        ethereum: results.ethereum.usd
+        ethereum: results.ethereum.usd,
+        litecoin: results.litecoin.usd,
+        cardano: results.cardano.usd
       })
       // const resEth = parseFloat(results.ethereum.usd).toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
       // setEth(resEth)
@@ -94,6 +96,14 @@ const Index: NextPage = () => {
         case "ethereum":
           setCoinAmount(altCoins?.ethereum * 148)
           setBtcAmount(altCoins?.ethereum);
+          break;
+        case "litecoin":
+          setCoinAmount(altCoins?.litecoin * 148)
+          setBtcAmount(altCoins?.litecoin);
+          break;
+        case "cardano":
+          setCoinAmount(altCoins?.cardano * 148)
+          setBtcAmount(altCoins?.cardano);
           break;
       default:
         break;
@@ -205,6 +215,8 @@ const Index: NextPage = () => {
                       <select className="form-control" name="method" onChange={(e) => changeCoins(e)}>
                         <option value="bitcoin">BTC</option>
                         <option value="ethereum">ETH</option>
+                        <option value="litecoin">LTC</option>
+                        <option value="cardano">ADA</option>
                       </select>
                       <input
                         disabled

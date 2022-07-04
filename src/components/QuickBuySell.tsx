@@ -53,11 +53,11 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
   const quickBuy = (wallet: any) => {
     if (user) {
       createTransaction(user?.uid, {
-        "coinCurrency": "btc",
+        "coinCurrency": coinSymbol,
         "coinAmount": formData.btc,
         "currency": currency,
         "amount": formData.usd,
-        "type": name,
+        "type": title,
         "wallet": wallet,
       })
       .then( res => {
@@ -120,7 +120,10 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
     else if (formData.usd === "") {
       setFormData({ ...formData, btc: ""})
     }
-  }, [currency, usd, coinSymbol])
+    else if (formData.btc === ""  && title === "Sell") {
+      setFormData({ ...formData, usd: ""})
+    }
+  }, [currency, usd, btc, coinSymbol])
 
   const generateCoin = async() => {
     try {
@@ -202,12 +205,19 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
     generateCoin();
   },[user])
 
-  const val = {coinAmount: formData.btc, dollarAmount: formData.usd, type: title, symbol: coinSymbol}
+  useEffect(() => {
+    setFormData({
+      usd:"",
+      btc:""
+    })
+  },[title])
+
+  const val = {coinAmount: formData.btc, dollarAmount: formData.usd, type: title, symbol: coinSymbol, currency: currency}
 
   return (
     <div className="card">
       <Toaster/>
-      <ConfirmationModal show={show} close={setShow} purchase={quickBuy} values={val} />
+      <ConfirmationModal show={show} close={setShow} purchase={quickBuy} values={val} reload={showTransactions} />
       <div className="card-header">
         {/* <h4 className="card-title">Quick Buy</h4>
         <h4 className="card-title">/</h4>
@@ -317,12 +327,15 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
               <select className="form-control" name="method" onChange={(e) => changeCoins(e)}>
                 <option value="bitcoin">BTC</option>
                 <option value="ethereum">ETH</option>
+                <option value="litecoin">LTC</option>
+                <option value="cardano">ADA</option>
+                <option value="dogecoin">DOGE</option>
               </select>
               <input
-                type="text"
+                type="number"
                 name="btc"
                 className="form-control"
-                placeholder="1 BTC"
+                // placeholder="1 BTC"
                 value={btc}
                 onChange={(e) => onChange(e)}
               />
@@ -341,7 +354,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
                 min="100"
                 disabled
                 className="form-control"
-                placeholder={`${coin} USD`}
+                // placeholder={`${coin} USD`}
                 value={usd}
                 onChange={(e) => onChange(e)}
               />
@@ -351,7 +364,7 @@ const QuickBuySell: FC<{ name?: string; color?: string; }> = ({
 
 
           <p className="mb-0">
-          {`1 BTC ~ $${coin} USD `}
+          {`1 BTC ~ $${coin} JMD `}
             <a href="#">
               Estimated rate <br />
             </a>

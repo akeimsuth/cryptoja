@@ -14,6 +14,8 @@ const Trade: NextPage = () => {
   const [transactions, setTransactions] = useState([]);
   const [user, loading] = useAuthState(auth);
   const [userDetails, setUserDetails] = useState<any>();
+  const [pending, setPending] = useState(true);
+  const [showUser, setShowUser] = useState<any>();
 
   const [formData, setFormData] = useState({
     transId: "",
@@ -42,7 +44,7 @@ const Trade: NextPage = () => {
       name: 'Currency',
       selector: row => <>
         <span className="coin-name">
-          <i className="cc BTC"></i> {row?.coinCurrency}
+          <i className={`cc ${row?.coinCurrency}`}></i> {row?.coinCurrency}
         </span>
       </>,
     },
@@ -68,6 +70,7 @@ const Trade: NextPage = () => {
         setTransactions(res.data)
       })
       .catch(err => console.log(err))
+      .finally(() => setPending(false))
     }
   }
 
@@ -88,6 +91,12 @@ const Trade: NextPage = () => {
       .then(res => setUserDetails(res.data))
       .catch(error => console.log(error))
     }
+  }
+
+  const showUserInfo = (user) => {
+    getUser(user)
+    .then(res => setShowUser(res.data))
+    .catch(error => console.log(error))
   }
 
   useEffect(() => {
@@ -123,10 +132,17 @@ const Trade: NextPage = () => {
   };
 
   const ExpandedComponent = ({ data }) =>  <div style={{paddingTop:"1rem"}} className="col-xl-12">
+      
+      <label className="form-label">Name: </label>
+      <span>{data?.name}</span> <br/>
+      <label className="form-label">Email: </label>
+      <span>{data?.email}</span> <br/>
+      <label className="form-label">Phone: </label>
+      <span>{data?.phone}</span> <br/>
       <label className="form-label">Wallet Address: </label>
       <span>{data?.wallet?.address}</span> <br/>
       {/* <label className="form-label">Transaction ID</label> */}
-      <form className="identity-upload"
+      <form
              onSubmit={(e) => onSubmit(e, data?.id)}
             >
       <input
@@ -166,7 +182,7 @@ const Trade: NextPage = () => {
             <div className="col-xxl-12">
               <div className="card">
                 <div className="card-header">
-                  <h4 className="card-title">Past Transactions</h4>
+                  <h4 className="card-title">Transactions</h4>
                 </div>
                 <div className="card-body">
                         <div className="table-responsive transaction-table">
@@ -177,6 +193,7 @@ const Trade: NextPage = () => {
                             data={transactions}
                             pagination
                             expandableRows
+                            progressPending={pending}
                             expandOnRowClicked
                             expandableRowsComponent={ExpandedComponent}
                             pointerOnHover
@@ -186,6 +203,7 @@ const Trade: NextPage = () => {
                             columns={columns}
                             data={transactions}
                             pagination
+                            progressPending={pending}
                           />
                         }
                           {/* <table className="table table-striped responsive-table">

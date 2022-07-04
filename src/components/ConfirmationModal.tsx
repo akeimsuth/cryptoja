@@ -6,16 +6,19 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import SuccessModal from "./SuccessModal";
 import { getWallet } from "../services/WalletService";
 import { convertMoney } from "../helper";
+import AddBankCardModal from "./AddBankCardModal";
 
-const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values: any }> = ({
+const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values: any, reload?:any }> = ({
   show,
   close,
   purchase,
+  reload,
   values
 }) => {
   const [successModal, setSuccessModal] = useState(false);
   const [user, loading] = useAuthState(auth);
   const [wallet, setWallet] = useState([]);
+  const [view, setView] = useState(false);
   const [selectedWallet, setSelectedWallet] = useState<any>();
 
   const [formData, setFormData] = useState({
@@ -48,14 +51,20 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
     }
   }
 
+  const closeSuccessMoal = () => {
+    setSuccessModal(false);
+    reload();
+  }
+
 
   useEffect(() => {
     showWallet();
-  }, [user, showWallet])
+  }, [user])
 
   return (
     <Fragment>
-      <SuccessModal show={successModal} close={setSuccessModal} />
+      <AddBankCardModal show={view} close={setView}/>
+      <SuccessModal show={successModal} close={closeSuccessMoal} />
       <Modal
         className="modal fade"
         id="BuyModal"
@@ -103,21 +112,25 @@ const ConfirmationModal: FC<{ show?: boolean; close?: any, purchase: any, values
                   </tr>
                   <tr>
                     <td>Dollar Amount</td>
-                    <td>{`$ ${convertMoney(values.dollarAmount)} USD`}</td>
+                    <td>{`$ ${convertMoney(values.dollarAmount)} ${(values?.currency)?.toUpperCase()}`}</td>
                   </tr>
                   {values.type === "Buy" ?
                   <>
                   <tr>
-                    {/* <td> */}
                     <div className="col-xl-12">
-                      <label className="form-label">Wallets Available</label>
-                          <Select name="coinType" options={wallet} onChange={(value) => onWalletChange(value)} />
-                        {/* <div className="col-12">
-                          <div className="form-check form-check-inline">
-                          </div>
-                        </div> */}
+                      {wallet.length > 0 ? 
+                      <>
+                        <label className="form-label">Wallets Available</label>
+                        <Select name="coinType" options={wallet} onChange={(value) => onWalletChange(value)} />
+                      </>
+                      :
+                      <>
+                        <label className="form-label">No Wallet</label>
+                        <button className="btn btn-success" onClick={() => setView(true)}>Create Wallet</button>
+                        <br/>
+                      </>
+                      }
                     </div>
-                    {/* </td> */}
                   </tr>
 
                   </>
