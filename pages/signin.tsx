@@ -49,10 +49,10 @@ const Signin: NextPage = () => {
     // }
   }, [user, loading]);
   return (
-    <div className="authincation section-padding">
+    <div className="authincation">
       <div className="container h-100">
         <Toaster/>
-        <div className="row justify-content-center h-100 align-items-center">
+        <div className="row h-100">
           <div className="col-xl-5 col-md-6">
             <div className="mini-logo text-center my-4">
               <Link href="/">
@@ -68,7 +68,7 @@ const Signin: NextPage = () => {
               </Link>
               <h4 className="card-title mt-5">Sign in to your account</h4>
             </div>
-            <div className="auth-form card">
+            <div className="auth-form card" style={{height: "auto !important"}}>
               <div className="card-body">
                 <form
                   name="myform"
@@ -142,6 +142,9 @@ const Signin: NextPage = () => {
                 <a>Privacy Policy</a>
               </Link>
             </div> */}
+          </div>
+          <div className="col-xl-5 col-md-6">
+            <img alt="login image" width="600" src="/images/bg/login_image.jpg"/>
           </div>
         </div>
       </div>
